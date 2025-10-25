@@ -1,0 +1,89 @@
+/* 🌸 Page Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🌸 Login Box */
+.login-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* 🌸 Heading */
+h2 {
+  margin-bottom: 20px;
+  color: #ff1493;
+}
+
+/* 🌸 Input Fields */
+input[type="text"],
+input[type="password"] {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #ff69b4;
+  border-radius: 10px;
+  outline: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: #ff1493;
+  box-shadow: 0 0 8px #ff69b4;
+}
+
+/* 🌸 Button Styling */
+button {
+  background-color: #ff69b4;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #ff1493;
+  transform: scale(1.05);
+}
+
+/* 🌸 Message Styling */
+.message {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}
+
+/* 🌸 Smooth fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
