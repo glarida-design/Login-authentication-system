@@ -1,0 +1,39 @@
+// ✅ Dummy login credentials (you can change these)
+const validUser = {
+  username: "admin",
+  password: "12345"
+};
+
+// Get form and message elements
+const form = document.getElementById("loginForm");
+const messageDiv = document.getElementById("message");
+
+// 🧩 Handle form submission
+form.addEventListener("submit", function (event) {
+  event.preventDefault(); // Stop form from refreshing the page
+
+  const user = document.getElementById("username").value.trim();
+  const pass = document.getElementById("password").value.trim();
+
+  // Confirm before submitting
+  const confirmSubmit = confirm("Do you want to submit the login details?");
+  if (!confirmSubmit) {
+    messageDiv.textContent = "❌ Submission cancelled.";
+    messageDiv.className = "message error";
+    return;
+  }
+
+  // 🔐 Check login credentials
+  if (user === validUser.username && pass === validUser.password) {
+    messageDiv.textContent = "✅ Login Successful! Welcome, " + user + "!";
+    messageDiv.className = "message success";
+
+    // Redirect after success (optional)
+    setTimeout(() => {
+      window.location.href = "welcome.html"; // You can create this page
+    }, 2000);
+  } else {
+    messageDiv.textContent = "❌ Invalid username or password!";
+    messageDiv.className = "message error";
+  }
+});
