@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Authentication System</title>
+  <style>
+    /* 🌸 Page Styling */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      width: 350px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #ff1493;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 2px solid #ff69b4;
+      border-radius: 10px;
+      outline: none;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: #ff1493;
+      box-shadow: 0 0 8px #ff69b4;
+    }
+
+    button {
+      background-color: #ff69b4;
+      border: none;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff1493;
+      transform: scale(1.05);
+    }
+
+    .message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .success {
+      color: green;
+    }
+
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>🔐 Login Authentication</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Enter Username" required /><br />
+      <input type="password" id="password" placeholder="Enter Password" required /><br />
+      <button type="submit">Login</button>
+    </form>
+    <div id="message" class="message"></div>
+  </div>
+
+  <script>
+    // ✅ Demo user credentials
+    const validUser = {
+      username: "admin",
+      password: "12345"
+    };
+
+    const form = document.getElementById("loginForm");
+    const messageDiv = document.getElementById("message");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault(); // stop auto refresh
+
+      const user = document.getElementById("username").value.trim();
+      const pass = document.getElementById("password").value.trim();
+
+      // Confirm before submitting
+      const confirmSubmit = confirm("Do you want to submit the login details?");
+      if (!confirmSubmit) {
+        messageDiv.textContent = "❌ Submission cancelled.";
+        messageDiv.className = "message error";
+        return;
+      }
+
+      // Login check
+      if (user === validUser.username && pass === validUser.password) {
+        messageDiv.textContent = "✅ Login Successful! Welcome, " + user + "!";
+        messageDiv.className = "message success";
+        setTimeout(() => {
+          window.location.href = "welcome.html"; // optional redirect
+        }, 2000);
+      } else {
+        messageDiv.textContent = "❌ Invalid username or password!";
+        messageDiv.className = "message error";
+      }
+    });
+  </script>
+</body>
+</html>
